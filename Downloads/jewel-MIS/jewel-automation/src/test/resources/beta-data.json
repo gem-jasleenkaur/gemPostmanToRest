@@ -1,0 +1,16 @@
+{
+  "normal_user": {
+    "username": "perf-test-shubham",
+    "password": "b1418f8e82ea4fb3ee824ce825d5ed5a"
+  },
+  "admin_user": {
+    "username": "perf-admin-shubham",
+    "password": "b1418f8e82ea4fb3ee824ce825d5ed5a"
+  },
+  "super_admin_user": {
+    "username": "perf-superadmin-shubham",
+    "password": "b1418f8e82ea4fb3ee824ce825d5ed5a"
+  },
+  "initial_project_id": "",
+  "initial_project_name": ""
+}

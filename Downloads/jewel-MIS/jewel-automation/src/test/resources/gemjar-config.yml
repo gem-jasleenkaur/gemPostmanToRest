@@ -1,0 +1,21 @@
+jewel_user: dipanshu.perfadmin
+jewel_bridge_token: 7669bbd0-568e-4c12-be09-77102ea1c3aa1703765028874
+environment: prod
+project_name: JEWEL
+report_name: Report
+tags: ''
+scenario: ''
+feature: src/test/resources/features
+glue_code: com.qa.gemini.stepdefinitions
+browser_timeout: 100
+email_report: n
+email_to: [
+  ]
+enter_point: https://apis.gemecosystem.com/gemEcosystemDashboard/v1/enter-point
+beta:
+  base_url: https://betaapi.gemecosystem.com
+  jewel_data: src/test/resources/beta-data.json
+prod:
+  base_url: https://apis.gemecosystem.com
+  jewel_data: src/test/resources/prod-data.json
+endpoints: src/test/resources/endpoints/jewel-endpoints.json
