@@ -1,0 +1,1 @@
+{"headers":[{"type":"text","value":"{{authToken}}","key":"Authorization"}],"method":"GET","url":"{{eventServiceBaseURL}}/list/1657cca5-e851-49f6-9409-5dac8a06ae39"}
