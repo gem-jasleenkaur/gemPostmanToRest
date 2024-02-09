@@ -1,0 +1,11 @@
+{
+  "headers": [
+    {
+      "type": "text",
+      "value": "{{authToken}}",
+      "key": "Authorization"
+    }
+  ],
+  "method": "GET",
+  "url": "{{matchModeServiceBaseURL}}/matchModeVideoList?page=2&pageSize=10"
+}

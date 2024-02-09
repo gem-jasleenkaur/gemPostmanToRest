@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "a64ef0d0-93ba-4879-ba92-8051411a295d",
+		"name": "Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32005367"
+	},
+	"item": [
+		{
+			"name": "Simple get request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201 Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dummy Post Request - Create User Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//status validation\r",
+							"pm.test(\"Status code is 201 Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"//Response contains key\r",
+							"pm.test(\"Response contains ID\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('id');\r",
+							"});\r",
+							"\r",
+							"//Response time \r",
+							"pm.test('Response time is less than 500ms', function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"//Response has expected structure\r",
+							"/*pm.test('Response body has expected structure', function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('data');\r",
+							"});\r",
+							"\r",
+							"//Response contains specific data\r",
+							"pm.test('Response body contains specific data', function () {\r",
+							"    pm.expect(pm.response.json().data).to.eql({ key: 'value' });\r",
+							"});\r",
+							"*/\r",
+							"\r",
+							"//Content-type validation\r",
+							"pm.test('Content-Type header is present', function () {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
+							"});\r",
+							"\r",
+							"//Response key is not null\r",
+							"pm.test('ID is not null', function () {\r",
+							"    pm.expect(pm.response.json().id).to.not.to.be.null;\r",
+							"});\r",
+							"\r",
+							"//Response does not have key\r",
+							"pm.test('Response does not contain sensitive information', function () {\r",
+							"    pm.expect(pm.response.text()).to.not.include('password');\r",
+							"});\r",
+							"\r",
+							"//Store variable and use else where\r",
+							"\r",
+							"// Extract ID from the response\r",
+							"const id = pm.response.json().id;\r",
+							"\r",
+							"// Set the collection variable\r",
+							"pm.collectionVariables.set(\"id\", id);\r",
+							"\r",
+							"// Log the extracted ID for verification\r",
+							"console.log(\"Extracted ID:\", id);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//set path\r",
+							"// Get the current value of path from environment variables or other sources\r",
+							"const dynamicPathValue = pm.variables.get(\"path\");\r",
+							"\r",
+							"// Modify the oath value as needed\r",
+							"pm.environment.set(\"path\", \"public/v2/users\")\r",
+							"\r",
+							"// Log the updated dynamicPathValue for verification\r",
+							"console.log(\"Updated dynamicPathValue:\", pm.variables.get(\"path\"));\r",
+							"//set authorization\r",
+							"\r",
+							"// Get the authentication token from an environment variable \r",
+							"const authToken = pm.environment.get(\"token\");\r",
+							"// Check if the authToken is available\r",
+							"if (authToken) {\r",
+							"    // Set the Authorization header in the request\r",
+							"    pm.request.headers.add({\r",
+							"        key: 'Authorization',\r",
+							"        value: `Bearer ${authToken}`\r",
+							"    });\r",
+							"\r",
+							"    // Log the added header for verification\r",
+							"    console.log(\"Authorization header added:\", `Bearer ${authToken}`);\r",
+							"} else {\r",
+							"    console.error(\"Authentication token not available. Unable to set Authorization header.\");\r",
+							"}\r",
+							"\r",
+							"//set content-type\r",
+							"pm.request.headers.upsert({\r",
+							"    key: 'Content-Type',\r",
+							"    value: pm.environment.get(\"content-type\")\r",
+							"});\r",
+							"\r",
+							"//set body\r",
+							"// Define the request body data\r",
+							"let requestBody = {\r",
+							"        \"id\": 11,\r",
+							"        \"name\": \"ABC\",\r",
+							"        \"email\": \"ABCDEF@conn-ohara.test\",\r",
+							"        \"gender\": \"female\",\r",
+							"        \"status\": \"inactive\"\r",
+							"};\r",
+							"\r",
+							"// Convert the request body data to a JSON string\r",
+							"let requestBodyString = JSON.stringify(requestBody);\r",
+							"\r",
+							"// Set the request body\r",
+							"pm.request.body.raw = requestBodyString;\r",
+							"\r",
+							"// Log the set request body for verification\r",
+							"console.log(\"Request body set:\", requestBodyString);\r",
+							"\r",
+							"//Update the request body\r",
+							"// Get the existing request body data\r",
+							"let requestBodyData = JSON.parse(pm.request.body.raw);\r",
+							"\r",
+							"// Add a new key-value pair\r",
+							"requestBodyData.name = \"Jasleen\";\r",
+							"requestBodyData.surname = \"Multani\";\r",
+							"console.log(\"Request body updated:\", JSON.stringify(requestBodyData));\r",
+							"// Remove an existing key-value pair\r",
+							"delete requestBodyData.surname;\r",
+							"\r",
+							"// Update the request body\r",
+							"pm.request.body.raw = JSON.stringify(requestBodyData);\r",
+							"\r",
+							"// Log the updated request body for verification\r",
+							"console.log(\"Request body updated:\", JSON.stringify(requestBodyData));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/{{path}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{path}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": ""
+		}
+	]
+}
