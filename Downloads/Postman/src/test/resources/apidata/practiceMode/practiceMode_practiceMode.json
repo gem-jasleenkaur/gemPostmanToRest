@@ -1,0 +1,11 @@
+{
+  "headers": [
+    {
+      "type": "text",
+      "value": "{{authToken}}",
+      "key": "Authorization"
+    }
+  ],
+  "method": "GET",
+  "url": "{{practiceModeServiceBaseURL}}/parameterAnalysisDetails?videoId=c0f4cfb8-c3cb-462b-9f7f-132569a880b4&version=1&parameter=WRIST_FLICK&cycleNumber=1"
+}

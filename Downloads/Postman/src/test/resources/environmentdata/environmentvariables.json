@@ -1,0 +1,14 @@
+{
+  "UAT Domain": [
+    {
+      "variable_key": "",
+      "practiceModeServiceBaseURL": "https://uat.eapi-spa.com/practiceMode",
+      "eventServiceBaseURL": "https://uat.eapi-spa.com/event",
+      "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uIjp7InVzZXJJZCI6IjRjNzRhYzk4LThlYWQtNDYzNi1hY2I5LTRmNGZlYjkzMjQ5OCJ9LCJpYXQiOjE3MDA4MTQxODMsImV4cCI6MTcwMDkwMDU4M30.dyIAMg-M_ewaFyc-u596n1PR8VvplfRsEqvM7EU73dw",
+      "authServiceBaseURL": "https://uat.eapi-spa.com/auth",
+      "authtoken": "",
+      "userServiceBaseURL": "https://uat.eapi-spa.com/user",
+      "matchModeServiceBaseURL": "https://uat.eapi-spa.com/matchMode"
+    }
+  ]
+}

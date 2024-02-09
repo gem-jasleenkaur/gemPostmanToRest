@@ -1,0 +1,12 @@
+{
+  "headers": [
+    {
+      "type": "text",
+      "value": "{{authToken}}",
+      "key": "Authorization"
+    }
+  ],
+  "method": "POST",
+  "body": "{\r\n    \"token\":\"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uIjp7InVzZXJJZCI6IjRjNzRhYzk4LThlYWQtNDYzNi1hY2I5LTRmNGZlYjkzMjQ5OCJ9LCJpYXQiOjE2OTkyNzEwNTd9.RYnIE6ZRfFZO4UwYIJb4mhgMFbd-fh0OepMCGH5py-g\"\r\n}",
+  "url": "{{authServiceBaseURL}}/logout"
+}
